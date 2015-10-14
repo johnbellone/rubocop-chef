@@ -11,22 +11,13 @@ EOH
   spec.homepage = 'http://github.com/johnbellone/rubocop-chef'
   spec.authors = ['John Bellone']
   spec.email = ['jbellone@bellone.us']
-  spec.licenses = ['Apache 2.0']
+  spec.license = 'Apache 2.0'
 
-  spec.version = RuboCop::Chef::Version::STRING
-  spec.platform = Gem::Platform::RUBY
+  spec.version = RuboCop::Chef::VERSION
   spec.required_ruby_version = '>= 1.9.3'
-
+  spec.files = `git ls-files`.split($/)
+  spec.test_files = spec.files.grep(%r{^(test|spec)/})
   spec.require_paths = ['lib']
-  spec.files = Dir[
-    '{config,lib,spec}/**/*',
-    '*.md',
-    '*.gemspec',
-    'Gemfile',
-    'Rakefile'
-  ]
-  spec.test_files = spec.files.grep(%r{^spec/})
-  spec.extra_rdoc_files = ['README.md']
 
   spec.add_development_dependency('rubocop', '~> 0.31')
   spec.add_development_dependency('rake', '~> 10.1')
